@@ -27,11 +27,11 @@ You can run the script in two ways:
 2. By providing command-line arguments to override the hardcoded values.
 
 # Parameters:
-- model_id: The huggingface repository or local directory containing a HF model. Example: 'openai/gpt2', './hermes2', etc. It can be a folder or a huggingface directory.
-- bits: The number of bits to use for quantization. Example: 8, 16, etc.
-- dataset: The name of the dataset to use. Example: 'wikitext2', 'wikitext103', etc.
-- group_size: The size of the group for quantization. Usually a power of 2.
-- device_map: Device mapping configuration for loading the model. Example: 'auto', 'cpu', 'cuda:0', etc.
+- model_id: The huggingface repository or local directory containing a HF model. Example: 'teknium/openhermes', './hermes2', etc. It can be a folder or a huggingface directory.
+- bits: The number of bits to use for quantization. Options: 4 and 8 - Default: `4`
+- dataset: The name of the dataset to use. Example: 'wikitext2', 'c4', etc. - Default: `wikitext2`
+- group_size: The size of the group for quantization. Usually a power of 2. - Default: `128`
+- device_map: Device mapping configuration for loading the model. Example: 'auto', 'cpu', 'cuda:0', etc. - Default `"auto"`
 
 ## Running the script
 
@@ -42,7 +42,7 @@ You can run the script in two ways:
 2. **Using command-line arguments**:
     - Use the following syntax:
     ```bash
-    python quantize.py --model_id 'gpt2' --bits 8 --dataset 'wikitext2' --group_size 32 --device_map 'auto'
+    python quantize.py --model_id 'teknium/openhermes' --bits 8 --dataset 'wikitext2' --group_size 32 --device_map 'auto'
     ```
 
     **Note**: Command-line arguments will take precedence over hardcoded values.
