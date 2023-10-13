@@ -1,0 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+--extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+torch==2.0.1
+auto-gptq
+transformers
+sentencepiece
+protobuf
+optimum

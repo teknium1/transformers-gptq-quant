@@ -1,0 +1,1 @@
+A simple script to quantize hf models with transformers and gptq.
