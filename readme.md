@@ -9,8 +9,8 @@ This repository provides a Python script to quantize models with the Hugging Fac
 ## Features
 
 - Supports quantizing various GPTQ precisions (8bit and 4bit).
-- Allows for command-line overrides for parameters.
-- Compatible with a range of datasets.
+- Allows for command-line or direct script useage.
+- Compatible with a range of models and datasets.
 
 ## Prerequisites
 
@@ -25,6 +25,7 @@ You can run the script in two ways:
 
 1. By setting hardcoded values for the parameters at the top of the script under 'Hardcoded default values'.
 2. By providing command-line arguments to override the hardcoded values.
+3. 
 # Parameters:
 - model_id: The huggingface repository or local directory containing a HF model. Example: 'openai/gpt2', './hermes2', etc. It can be a folder or a huggingface directory.
 - bits: The number of bits to use for quantization. Example: 8, 16, etc.
