@@ -68,8 +68,21 @@ if __name__ == "__main__":
     group_size = args.group_size if args.group_size else GROUP_SIZE
     device_map = args.device_map if args.device_map else DEVICE_MAP
 
-    if not all([model_id, bits, dataset, group_size, device_map]):
-        print("Error: Not all settings are provided. Use --help for more information.")
+    # Dictionary mapping of argument names to their values
+    arg_dict = {
+        "model_id": model_id,
+        "bits": bits,
+        "dataset": dataset,
+        "group_size": group_size,
+        "device_map": device_map
+    }
+
+    # Check for unset values and store their names
+    missing_args = [key for key, value in arg_dict.items() if not value and value != 0]  # checking for empty string and excluding 0 for 'bits'
+
+    if missing_args:
+        missing_str = ', '.join(missing_args)
+        print(f"Error: Unset values for: {missing_str}. Use --help for more information.")
         exit(1)
 
     main(model_id=model_id, bits=bits, dataset=dataset, group_size=group_size, device_map=device_map)
