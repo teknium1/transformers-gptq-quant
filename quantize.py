@@ -40,7 +40,7 @@ DEVICE_MAP = "auto"
 
 def main(model_id, bits, dataset, group_size, device_map):
     tokenizer = AutoTokenizer.from_pretrained(model_id)
-    gptq_config = GPTQConfig(bits=bits, dataset=dataset, tokenizer=tokenizer, group_size=group_size)
+    gptq_config = GPTQConfig(bits=bits, dataset=dataset, tokenizer=tokenizer, group_size=group_size, desc_act=True)
     model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=gptq_config, device_map=device_map)
     model.to("cpu")
     model.save_pretrained(f"{model_id}_{bits}bit")
