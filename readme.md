@@ -4,11 +4,11 @@ A Python-based utility for quantizing GPT models using the Hugging Face 'transfo
 
 ## Description
 
-This repository provides a Python script to quantize GPT models with the Hugging Face 'transformers' library. Quantization can reduce the memory requirements of models, which may be beneficial for deployment on resource-constrained devices.
+This repository provides a Python script to quantize models with the Hugging Face 'transformers' and AutoGPTQ for 4 or 8 bit. Quantization can reduce the memory requirements of models, which may be beneficial for deployment on resource-constrained devices.
 
 ## Features
 
-- Supports quantizing various GPT model sizes.
+- Supports quantizing various GPTQ precisions (8bit and 4bit).
 - Allows for command-line overrides for parameters.
 - Compatible with a range of datasets.
 
@@ -26,7 +26,7 @@ You can run the script in two ways:
 1. By setting hardcoded values for the parameters at the top of the script under 'Hardcoded default values'.
 2. By providing command-line arguments to override the hardcoded values.
 # Parameters:
-- model_id: The identifier of the pre-trained GPT model. Example: 'gpt2', 'gpt2-medium', etc. It can be a folder or a huggingface directory.
+- model_id: The huggingface repository or local directory containing a HF model. Example: 'openai/gpt2', './hermes2', etc. It can be a folder or a huggingface directory.
 - bits: The number of bits to use for quantization. Example: 8, 16, etc.
 - dataset: The name of the dataset to use. Example: 'wikitext2', 'wikitext103', etc.
 - group_size: The size of the group for quantization. Usually a power of 2.
